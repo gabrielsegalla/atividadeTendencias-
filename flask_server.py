@@ -1,4 +1,10 @@
-from flask import Flask
+import dash
+import dash_core_components as dcc
+import dash_html_components as html
+import plotly.express as px
+import pandas as pd
+from flask import Flask, render_template
+from dash.dependencies import Input, Output
 from flask_ngrok import run_with_ngrok
 
 app = Flask(__name__)
