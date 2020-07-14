@@ -1,21 +1,45 @@
-from flask import Flask, render_template
-from flask_ngrok import run_with_ngrok
+from flask import Flask, render_template, request
+from radio import Radio
 
 app = Flask(__name__)
 
-run_with_ngrok(app)
 
-# rota p/ ligar ou desligar o radio (0 / 1)
-# exibir os valores neste servidos além de enviar!
+radio = Radio()
+
 @app.route("/")
-def getRadioStatus():
-  pass
+def getHome():
+  return render_template('home.html')
   
-# rota p/ aumentar o volume (0.....5.....10)
-# exibir os valores neste servidos além de enviar!
-@app.route("/radio")
-def getRadioVolume():
- return render_template('radio.html')
+@app.route("/radio", methods = ['GET','POST'])
+def getRadio():
+  if request.method == 'post':
+    radio.set_status()
+  else:
+    return render_template('radio.html', status=radio.get_status(), set_status=radio.set_status())
+
+@app.route("/radio/status")
+def getStatus():
+  pass
+
+@app.route("/radio/frequency")
+def getFrequency():
+  pass
+
+@app.route("/radio/status/set")
+def setStatus():
+  radio.set_status()
+
+@app.route("/radio/frequency/set")
+def setFrequency():
+  pass
+
+@app.route("/radio/frequency/next")
+def setNextFrequency():
+  pass
+
+@app.route("/radio/frequency/previous")
+def setPreviousFrequency():
+  pass
  
 if __name__ == '__main__':
  app.run(debug=True)

@@ -1,0 +1,12 @@
+{% block header %}
+  <h1>{% block title %}Radio{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<nav>
+    <li><a href="{{ url_for('getRadio') }}">Radio</a></li>
+</nav>
+
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% block header %}
+  <h1>{% block title %}Radio{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<nav>
+  {% if status == True %}
+  <button method="post">DESLIGAR</button>
+  {% else %}
+  <button method="post">LIGAR</button>
+  {% endif %}
+
+  
+</nav>
+
+{% endblock %}
