@@ -1,0 +1,18 @@
+{% block header %}
+  <h1>{% block title %}Radio{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<nav>
+    <li><a href="{{ url_for('getRadioDataAnalogico') }}">Pegar dados analógicos do rádio</a></li>
+    <li><a href="{{ url_for('getRadioDataDigital') }}">Pegar dados digitais do rádio</a></li>
+
+    <li><a href="{{ url_for('showRadioData') }}">Mostrar os últimos 10 dados</a></li>
+    <li><a href="{{ url_for('showGraficos') }}">Gráficos</a></li>
+    <li><a href="{{ url_for('turnOnRadio') }}">Ligar e desligar rádio</a></li>
+
+</nav>
+
+
+{% endblock %}
